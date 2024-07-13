@@ -1,39 +1,79 @@
-name: Deploy to GitHub Pages
+name: React App Deployment # name of the workflo
+
+
 
 on:
+
   push:
+
     branches:
-      - main
+
+      - main # branch name
+
+
 
 jobs:
-  deploy:
+
+  deploy-react-to-gh-pages:
+
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+    env:
 
-      - name: Set up Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      EXAMPLE: example # environment variable
+
+
+
+    steps:
+
+      # checkout the repository content to github runner
+
+      - name: Checkout
+
+        uses: actions/checkout@v2
+
+
+
+      # setup nodejs environment
+
+      - name: Setup Node.js environment
+
+        uses: actions/setup-node@v2.1.5
+
+        with:
+
+          node-version: "18.16.1"
+
+
+
+      # cache the dependencies to speed up the build
+
+      - name: Cache dependencies
+
+        uses: actions/cache@v2
+
+        with:
+
+          path: ~/.npm
+
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+          restore-keys: |
+
+            ${{ runner.os }}-node-
+
+
+
+      # install dependencies
 
       - name: Install dependencies
-        run: npm install
+
+        run: npm i
+
+
+
+      # build the react app
 
       - name: Build
-        run: npm run build
 
-      - name: Deploy
-        run: |
-          git remote add origin-pages https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Gilgamesh3379/sis_webapp_front.git
-          git fetch origin-pages
-          if git show-ref --verify --quiet refs/heads/gh-pages; then
-            git checkout gh-pages
-          else
-            git checkout --orphan gh-pages
-          fi
-          git rm -rf .
-          cp -r build/* .
-          git add -A
-          git commit -m "Deploy to GitHub Pages"
-          git push origin-pages gh-pages --force
+        run: npm run build
