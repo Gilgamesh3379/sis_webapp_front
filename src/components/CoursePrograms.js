@@ -30,7 +30,7 @@ function CoursePrograms(props) {
             <h1>Course Programs</h1>
             <ul>
                 {courseprograms.map((courseprogram) => {
-                    return <li key={courseprogram.id}>{courseprogram.name}</li>
+                    return <li key={courseprogram.id}>{courseprogram.text}</li>
                 })}
             </ul>
         </div>
