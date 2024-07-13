@@ -27,7 +27,8 @@ function CoursePrograms(props) {
 
     return (
         <div>
-            <h1>Course Programs</h1>
+            <h1>Maungawhau Institute of Studies (MIS)</h1>
+            <h2>Course Programs</h2>
             <ul>
                 {courseprograms.map((courseprogram) => {
                     return <li key={courseprogram.id}>{courseprogram.text}</li>
