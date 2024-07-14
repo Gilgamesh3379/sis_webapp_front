@@ -4,6 +4,7 @@ import TopBar from "./components/TopBar";
 import Home from "./components/Home";
 import CoursePrograms from "./components/CoursePrograms";
 import {Route, Routes} from "react-router";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/courseprogram" element={<CoursePrograms/>}/>
+            <Route path="/login" element={<Login/>}/>
         </Routes>
         {/*<button className={"btn btn-danger"}>*/}
         {/*    Submit*/}

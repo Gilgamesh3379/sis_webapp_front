@@ -1,3 +1,4 @@
+/* Existing styles in App.css */
 .App {
   text-align: center;
 }
@@ -35,4 +36,62 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* New styles for Home, CoursePrograms, and Login components */
+.Home-container, .CoursePrograms-container, .Login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(yellow, green);
+  font-family: Arial, sans-serif;
+}
+
+.Home-header, .CoursePrograms-header, .Login-header {
+  color: #4B0082;
+  font-size: calc(30px + 2vmin);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.Home-subHeader, .CoursePrograms-subHeader, .Login-subHeader {
+  font-size: calc(30px + 2vmin);
+  font-weight: bold;
+  color: #4B0082;
+}
+
+/* New styles for Login form */
+.Login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login-form input {
+  margin: 5px;
+  padding: 10px;
+  font-size: calc(10px + 1vmin);
+}
+
+.Login-form button {
+  padding: 10px 20px;
+  font-size: calc(10px + 1vmin);
+  background-color: #4B0082;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Login-form button:hover {
+  background-color: #333;
+}
+
+.Login-status {
+  margin-top: 20px;
+  font-size: calc(12px + 1vmin);
+  color: red;
 }

@@ -7,10 +7,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../assets/images/logo.png';
 
+
 console.log(logo);
 function TopBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar bg="primary" expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand href="#">
           <img
@@ -32,15 +33,15 @@ function TopBar() {
               <NavDropdown.Item href="/courseprogram">Course Programs</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Tuition Fee</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">------------------</NavDropdown.Item>
             </NavDropdown>
-             <Nav.Link href="/">Sign In</Nav.Link>
-            <Nav.Link href="#" disabled>
-              Sign Up
+             <Nav.Link href="/">Register</Nav.Link>
+            <Nav.Link href="/login">
+              Log In
             </Nav.Link>
           </Nav>
           <Navbar.Text>
-            Signed in as: <a href="#login">Roy Lee Flores</a>
+            Signed in as: <a href="/login">Roy Lee Flores</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
