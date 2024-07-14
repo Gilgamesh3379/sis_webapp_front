@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import data from "bootstrap/js/src/dom/data";
-import {BaseUrl} from "./consistents";
-import axios from "axios";
+import '../App.css';
+import axios from 'axios';
+import { BaseUrl } from './consistents';
 
 function CoursePrograms(props) {
 
-    const [courseprograms, setCourseprograms] = useState([])
+    const [courseprograms, setCourseprograms] = useState([]);
+
     useEffect(() => {
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
             url: BaseUrl + 'management_webapp/courseprograms/',
             headers: {},
-            data: data
         };
 
         axios.request(config)
@@ -23,15 +23,15 @@ function CoursePrograms(props) {
             .catch((error) => {
                 console.log(error);
             });
-    })
+    }, []);
 
     return (
-        <div>
-            <h1>Maungawhau Institute of Studies (MIS)</h1>
-            <h2>Course Programs</h2>
-            <ul>
+        <div className="CoursePrograms-container">
+            <h1 className="CoursePrograms-header">Maungawhau Institute of Studies (MIS)</h1>
+            <h2 className="CoursePrograms-subHeader">Course Programs</h2>
+            <ul className="CoursePrograms-list-container">
                 {courseprograms.map((courseprogram) => {
-                    return <li key={courseprogram.id}>{courseprogram.text}</li>
+                    return <li key={courseprogram.id} className={"CoursePrograms-list"}>{courseprogram.text}</li>
                 })}
             </ul>
         </div>
