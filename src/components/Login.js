@@ -1,10 +1,10 @@
+// Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BaseUrl } from './consistents';
 import '../App.css';
 
-function Login(props) {
-
+function Login({ setUser }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginStatus, setLoginStatus] = useState('');
@@ -18,24 +18,30 @@ function Login(props) {
     }
 
     function login(e) {
+        // const token = localStorage.getItem('token');
+        e.preventDefault();
         let data = JSON.stringify({
             'username': username,
-            'password': password
+            'password': password,
         });
 
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: BaseUrl + 'auth/',
+            url: BaseUrl + 'auth/token/', // Ensure this matches the Django URL configuration
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                // 'Authorization': `${token}`,
             },
-            data: data
+            data: data,
         };
 
-        axios.request(config)
+        axios
+            .request(config)
             .then((response) => {
-                console.log(JSON.stringify(response.data));
+                const token = response.data.access; // Use response.data.access for JWT
+                localStorage.setItem('token', token); // Store the token
+                setUser({ username: username });
                 setLoginStatus('Logged in Successfully!');
             })
             .catch((error) => {
@@ -46,7 +52,7 @@ function Login(props) {
 
     return (
         <div className="Login-container">
-            <h1 className="Login-header">Login Page</h1>
+            <h1 className="Login-header">MIS Login Page</h1>
             <div className="Login-form">
                 <p>
                     <label htmlFor="username">Username</label>
