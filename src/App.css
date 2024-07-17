@@ -1,4 +1,3 @@
-/* Existing styles in App.css */
 .App {
   text-align: center;
 }
@@ -38,8 +37,7 @@
   }
 }
 
-/* New styles for Home, CoursePrograms, and Login components */
-.Home-container, .CoursePrograms-container, .Login-container {
+.Home-container, .CoursePrograms-container, .Login-container, .Register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,20 +47,29 @@
   font-family: Arial, sans-serif;
 }
 
-.Home-header, .CoursePrograms-header, .Login-header {
+.Home-header, .CoursePrograms-header, .Login-header, .Register-header {
   color: #4B0082;
   font-size: calc(30px + 2vmin);
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.Home-subHeader, .CoursePrograms-subHeader, .Login-subHeader {
+.Home-subHeader, .CoursePrograms-subHeader, .Login-subHeader, .Register-subHeader {
   font-size: calc(30px + 2vmin);
   font-weight: bold;
   color: #4B0082;
 }
 
-/* New styles for Login form */
+.CoursePrograms-list {
+  font-size: calc(20px + 1vmin);
+  font-family: 'Courier New', Courier, monospace;
+  color: #4B0082;
+}
+
+.CoursePrograms-list-container {
+  margin-top: 50px;
+}
+
 .Login-form {
   display: flex;
   flex-direction: column;
@@ -90,8 +97,35 @@
   background-color: #333;
 }
 
-.Login-status {
+.Register-status {
   margin-top: 20px;
   font-size: calc(12px + 1vmin);
   color: red;
+}
+
+.Register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Register-form input {
+  margin: 5px;
+  padding: 10px;
+  font-size: calc(10px + 1vmin);
+}
+
+.Register-form button {
+  padding: 10px 20px;
+  font-size: calc(10px + 1vmin);
+  background-color: #4B0082;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Register-form button:hover {
+  background-color: #333;
 }
