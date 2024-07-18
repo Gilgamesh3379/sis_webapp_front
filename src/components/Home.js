@@ -6,7 +6,7 @@ function Home(props) {
         <div className="">
             <h1 >Welcome</h1>
             <h1 >to</h1>
-            <h1 >Maungawhau Institute of Studies (MIS)</h1>
+            <h1>Maungawhau Institute of Studies (MIS)</h1>
             <h2 >Homepage</h2>
         </div>
     );
